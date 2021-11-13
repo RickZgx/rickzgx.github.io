@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Httpie</title>
+    <meta name="description" content="  desc          main feature        Install开源项目Httpie学习descHTTPie (pronounced aitch-tee-tee-pie) is a command-line HTTP client. Its goal is to make CLI inter...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_2834368_e4zbefrloeb.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://0.0.0.0:4000/2021/02/22/httpie/">
+    <link rel="alternate" type="application/rss+xml" title="Rick's Blog" href="http://0.0.0.0:4000/feed.xml ">
+
+
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">Rick's Blog</a>
+        <small>QA Engineer for cloud storage now</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Httpie</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2021-02-22
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#OpenSource" title="Category: OpenSource" rel="category">OpenSource</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <!--a href="/tag/#Tool" title="Tag: Tool" rel="tag">Tool</a-->
+        <a href="/tag/#Tool" title="Tag: Tool" rel="tag">Tool</a>&nbsp;
+    
+        <!--a href="/tag/#Python" title="Tag: Python" rel="tag">Python</a-->
+        <a href="/tag/#Python" title="Tag: Python" rel="tag">Python</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#desc" id="markdown-toc-desc">desc</a>    <ul>
+      <li><a href="#main-feature" id="markdown-toc-main-feature">main feature</a></li>
+    </ul>
+  </li>
+  <li><a href="#install" id="markdown-toc-install">Install</a></li>
+  <li><a href="#usage" id="markdown-toc-usage">Usage</a>    <ul>
+      <li><a href="#basic" id="markdown-toc-basic">basic</a>        <ul>
+          <li><a href="#request--response" id="markdown-toc-request--response">request &amp; response</a></li>
+          <li><a href="#only-header" id="markdown-toc-only-header">only header</a></li>
+          <li><a href="#only-body" id="markdown-toc-only-body">only body</a></li>
+          <li><a href="#download" id="markdown-toc-download">download</a></li>
+          <li><a href="#different-methods" id="markdown-toc-different-methods">different methods</a></li>
+          <li><a href="#localhost-port-80" id="markdown-toc-localhost-port-80">localhost port 80</a></li>
+          <li><a href="#path-as-is" id="markdown-toc-path-as-is">path-as-is</a></li>
+          <li><a href="#转义字符" id="markdown-toc-转义字符">转义字符</a></li>
+          <li><a href="#json" id="markdown-toc-json">Json</a></li>
+        </ul>
+      </li>
+      <li><a href="#sessions" id="markdown-toc-sessions">Sessions</a></li>
+      <li><a href="#鉴权pending" id="markdown-toc-鉴权pending">鉴权[pending]</a></li>
+      <li><a href="#代理" id="markdown-toc-代理">代理</a></li>
+      <li><a href="#offline" id="markdown-toc-offline">offline</a></li>
+      <li><a href="#redirects" id="markdown-toc-redirects">redirects</a></li>
+    </ul>
+  </li>
+  <li><a href="#sourcecode" id="markdown-toc-sourcecode">SourceCode</a></li>
+  <li><a href="#醍醐灌顶" id="markdown-toc-醍醐灌顶">醍醐灌顶</a>    <ul>
+      <li><a href="#进制计算方法" id="markdown-toc-进制计算方法">进制计算方法</a></li>
+    </ul>
+  </li>
+  <li><a href="#衍生" id="markdown-toc-衍生">衍生</a></li>
+  <li><a href="#参考" id="markdown-toc-参考">参考</a></li>
+</ul>
+
+<p>开源项目<code class="language-plaintext highlighter-rouge">Httpie</code>学习</p>
+
+<h1 id="desc">desc</h1>
+<p>HTTPie (pronounced aitch-tee-tee-pie) is a command-line HTTP client. Its goal is to make CLI interaction with web services as human-friendly as possible. HTTPie is designed for testing, debugging, and generally interacting with APIs &amp; HTTP servers. The http &amp; https commands allow for creating and sending arbitrary HTTP requests. They use simple and natural syntax and provide formatted and colorized output.</p>
+
+<p>HTTPie 操作更加友好,好像真是这样.比如CURL虽然也很强大,但是用起来不太友好…</p>
+
+<h2 id="main-feature">main feature</h2>
+
+<ul>
+  <li>Expressive and intuitive syntax</li>
+  <li>Formatted and colorized terminal output</li>
+  <li>Built-in JSON support</li>
+  <li>Forms and file uploads</li>
+  <li>HTTPS, proxies, and authentication</li>
+  <li>Arbitrary request data</li>
+  <li>Custom headers</li>
+  <li>Persistent sessions</li>
+  <li>Wget-like downloads</li>
+  <li>Linux, macOS and Windows support</li>
+  <li>Plugins</li>
+  <li>Documentation</li>
+  <li>Test coverage</li>
+</ul>
+
+<h1 id="install">Install</h1>
+
+<p>centos 安装为例</p>
+
+<p><code class="language-plaintext highlighter-rouge">yum install httpie</code></p>
+
+<p>raise error</p>
+
+<p><a href="https://www.cnblogs.com/xueweihan/p/7185133.html">ImportError: cannot import name UnrewindableBodyError</a></p>
+
+<p>`
+python2 -m pip uninstall urllib3
+python2 -m pip install urllib3==1.21.1
+`</p>
+
+<p><strong>文档建议使用Python3安装</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">python3 -m pip install httpie</code></p>
+
+<h1 id="usage">Usage</h1>
+
+<h2 id="basic">basic</h2>
+
+<h3 id="request--response">request &amp; response</h3>
+
+<p>`
+http -v http://httpbin.org/get
+`</p>
+
+<p><code class="language-plaintext highlighter-rouge">http http://httpbin.org/get
+</code></p>
+
+<h3 id="only-header">only header</h3>
+
+<p><code class="language-plaintext highlighter-rouge">http -h  http://httpbin.org/get
+</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">http --header  http://httpbin.org/get
+</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">http --headers  http://httpbin.org/get
+</code></p>
+
+<h3 id="only-body">only body</h3>
+
+<p><code class="language-plaintext highlighter-rouge">http -b  http://httpbin.org/get
+</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">http --body  http://httpbin.org/get
+</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">http https://api.github.com/search/repositories q==httpie per_page==1</code></p>
+
+<h3 id="download">download</h3>
+
+<p><code class="language-plaintext highlighter-rouge">http -d http://httpbin.org/get -o get</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">http  http://httpbin.org/get &gt; get</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">cat get</code></p>
+
+<h3 id="different-methods">different methods</h3>
+
+<p>`
+http -f POST http://httpbin.org/post username=’zgx’
+`</p>
+
+<p><code class="language-plaintext highlighter-rouge">http DELETE http://httpbin.org/delete </code></p>
+
+<p><code class="language-plaintext highlighter-rouge">http PUT http://httpbin.org/put username='zgx' no=11    </code></p>
+
+<p>` http PUT http://httpbin.org/put username=’zgx’ no:=1 update:=true list:=’[“a”, “b”]’`</p>
+
+<p>模拟Form的Post请求, Content-Type: application/x-www-form-urlencoded; charset=utf-8
+<code class="language-plaintext highlighter-rouge">http --form POST http://httpbin.org/post username='zgx''</code></p>
+
+<p>模拟Form的上传, Content-Type: multipart/form-data
+<code class="language-plaintext highlighter-rouge">http -f POST http://httpbin.org/post username='zgx' file@txt_file</code></p>
+
+<p>这里cookie使用单引号括起来,是因为包含多个cooke.如果是单个cookie可以去掉单引号.</p>
+
+<p><code class="language-plaintext highlighter-rouge">http  http://httpbin.org/get User-Agent:curl 'Cookie:a=b;b=c' Referer:http://blog.zgx.io</code></p>
+
+<p>user-defined boundary</p>
+
+<p><code class="language-plaintext highlighter-rouge">http --multipart --boundary=asdfghjkl --offline example.org hello=world </code></p>
+
+<p>auto-defined</p>
+
+<p><code class="language-plaintext highlighter-rouge">http --form --multipart --offline example.org hello=world Content-Type:multipart/letter</code></p>
+
+<h3 id="localhost-port-80">localhost port 80</h3>
+
+<p><code class="language-plaintext highlighter-rouge">http :/api/v1/post/get cursor==0 limit==20 desc==1 tag==5</code></p>
+
+<h3 id="path-as-is">path-as-is</h3>
+
+<p><code class="language-plaintext highlighter-rouge">http --path-as-is -v example.org/./../../etc/password</code></p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">/../../etc/password</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">http -v example.org/./../../etc/password</code></p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">/etc/password</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre></div></div>
+
+<h3 id="转义字符">转义字符</h3>
+
+<p>–</p>
+
+<p><code class="language-plaintext highlighter-rouge">http POST http://httpbin.org/post -- -name-starting-with-dash=foo -Unusual-Header:bar</code></p>
+
+<h3 id="json">Json</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http PUT http://httpbin.org/put <span class="se">\</span>
+<span class="nv">name</span><span class="o">=</span>John <span class="se">\</span>
+age:<span class="o">=</span>20 <span class="se">\</span>
+xx:<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+hobbies:<span class="o">=</span><span class="s1">'["http", "pies"]'</span> <span class="se">\</span>
+bookmarks:<span class="o">=</span>@data.json <span class="se">\</span>
+<span class="nv">description</span><span class="o">=</span>@text.txt
+
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">echo '{"key" : "value"}' | http POST http://httpbin.org/post</code></p>
+
+<h2 id="sessions">Sessions</h2>
+
+<p><code class="language-plaintext highlighter-rouge">http --session=logged-in -a username:password pie.dev/get API-Key:123</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">http --session=logged-in pie.dev/headers</code></p>
+
+<h2 id="鉴权pending">鉴权[pending]</h2>
+
+<p><code class="language-plaintext highlighter-rouge">http -a username:password http://httpbin.org/basic-auth/username/password  </code></p>
+
+<h2 id="代理">代理</h2>
+
+<p>e.g.</p>
+
+<p><code class="language-plaintext highlighter-rouge">http --proxy=http:http://217.107.197.174:8081 proxy.mimvp.com</code></p>
+
+<h2 id="offline">offline</h2>
+
+<p>生成HTTP request,但不发送</p>
+
+<p><code class="language-plaintext highlighter-rouge">http --offline POST server.chess/api/games API-Key:ZZZ w=magnus b=hikaru t=180 i=2</code></p>
+
+<p>重定向到文件,后续发送</p>
+
+<p><code class="language-plaintext highlighter-rouge">http --offline POST server.chess/api/games API-Key:ZZZ w=magnus b=hikaru t=180 i=2 &gt; http.request</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">nc -v  pie.dev 80 &lt; request.http</code></p>
+
+<h2 id="redirects">redirects</h2>
+
+<p><code class="language-plaintext highlighter-rouge">http --follow --all zhihu.com -h</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">http --follow --all zhihu.com --max-redirects=2</code></p>
+
+<h1 id="sourcecode">SourceCode</h1>
+
+<p>rst</p>
+
+<p>Makefile</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+.
+├── AUTHORS.rst
+├── CHANGELOG.rst
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.rst
+├── extras
+│   ├── brew-deps.py
+│   ├── httpie-completion.bash
+│   ├── httpie-completion.fish
+│   └── httpie.rb
+├── httpie
+│   ├── cli
+│   ├── client.py
+│   ├── compat.py
+│   ├── config.py
+│   ├── context.py
+│   ├── core.py
+│   ├── downloads.py
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── models.py
+│   ├── output
+│   ├── plugins
+│   ├── __pycache__
+│   ├── sessions.py
+│   ├── ssl.py
+│   ├── status.py
+│   ├── uploads.py
+│   └── utils.py
+├── httpie.egg-info
+│   ├── dependency_links.txt
+│   ├── entry_points.txt
+│   ├── PKG-INFO
+│   ├── requires.txt
+│   ├── SOURCES.txt
+│   └── top_level.txt
+├── httpie.gif
+├── httpie.png
+├── LICENSE
+├── Makefile
+├── MANIFEST.in
+├── README.rst
+├── requirements-dev.txt
+├── setup.cfg
+├── setup.py
+├── tests
+│   ├── client_certs
+│   ├── conftest.py
+│   ├── fixtures
+│   ├── __pycache__
+│   ├── README.rst
+│   ├── test_auth_plugins.py
+│   ├── test_auth.py
+│   ├── test_binary.py
+│   ├── test_cli.py
+│   ├── test_compress.py
+│   ├── test_config.py
+│   ├── test_defaults.py
+│   ├── test_docs.py
+│   ├── test_downloads.py
+│   ├── test_errors.py
+│   ├── test_exit_status.py
+│   ├── test_httpie.py
+│   ├── test_offline.py
+│   ├── test_output.py
+│   ├── test_redirects.py
+│   ├── test_regressions.py
+│   ├── test_sessions.py
+│   ├── test_ssl.py
+│   ├── test_stream.py
+│   ├── test_tokens.py
+│   ├── test_unicode.py
+│   ├── test_uploads.py
+│   ├── test_windows.py
+│   └── utils
+└── venv
+    ├── bin
+    ├── include
+    ├── lib
+    ├── lib64 -&gt; lib
+    ├── pip-selfcheck.json
+    └── pyvenv.cfg
+
+17 directories, 64 files
+</code></pre></div></div>
+
+<p>源码模块大致梳理(未完待续</p>
+
+<p><img src="https://qazgx.oss-cn-beijing.aliyuncs.com/img/httpie.png" alt="httpie" style="zoom: 67%;" /></p>
+
+<p>TODO 后续给出代码走读模块流程图/思路</p>
+
+<p>…</p>
+
+<h1 id="醍醐灌顶">醍醐灌顶</h1>
+
+<h2 id="进制计算方法">进制计算方法</h2>
+
+<p>这写的是相当的精辟,这思维可以适用很多场景.</p>
+
+<p>owner也是直接搬运<code class="language-plaintext highlighter-rouge">Doug Latornell</code>这位老哥写的.</p>
+
+<p>code-show</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">humanize_bytes</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="c1"># Author: Doug Latornell
+</span>    <span class="c1"># Licence: MIT
+</span>    <span class="c1"># URL: https://code.activestate.com/recipes/577081/
+</span>    <span class="s">"""Return a humanized string representation of a number of bytes.
+
+    Assumes `from __future__ import division`.
+
+    &gt;&gt;&gt; humanize_bytes(1)
+    '1 B'
+    &gt;&gt;&gt; humanize_bytes(1024, precision=1)
+    '1.0 kB'
+    &gt;&gt;&gt; humanize_bytes(1024 * 123, precision=1)
+    '123.0 kB'
+    &gt;&gt;&gt; humanize_bytes(1024 * 12342, precision=1)
+    '12.1 MB'
+    &gt;&gt;&gt; humanize_bytes(1024 * 12342, precision=2)
+    '12.05 MB'
+    &gt;&gt;&gt; humanize_bytes(1024 * 1234, precision=2)
+    '1.21 MB'
+    &gt;&gt;&gt; humanize_bytes(1024 * 1234 * 1111, precision=2)
+    '1.31 GB'
+    &gt;&gt;&gt; humanize_bytes(1024 * 1234 * 1111, precision=1)
+    '1.3 GB'
+
+    """</span>
+    <span class="n">abbrevs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'PB'</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">40</span><span class="p">,</span> <span class="s">'TB'</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'GB'</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'MB'</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'kB'</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">'B'</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'1 B'</span>
+
+    <span class="k">for</span> <span class="n">factor</span><span class="p">,</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="n">abbrevs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">factor</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="c1"># noinspection PyUnboundLocalVariable
+</span>    <span class="k">return</span> <span class="s">'%.*f %s'</span> <span class="o">%</span> <span class="p">(</span><span class="n">precision</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="n">factor</span><span class="p">,</span> <span class="n">suffix</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="衍生">衍生</h1>
+
+<p>其实可以参考该项目源代码来进行爬虫实现</p>
+
+<h1 id="参考">参考</h1>
+
+<p><a href="https://github.com/httpie/httpie#about-this-document">Github-doc</a></p>
+
+<p><a href="https://httpie.io/docs">HTTPie-doc</a></p>
+
+<p><a href="https://www.cnblogs.com/new_2050/p/7745788.html">https://www.cnblogs.com/new_2050/p/7745788.html</a></p>
+
+<p><a href="https://stackoverflow.com/questions/3508338/what-is-the-boundary-in-multipart-form-data">https://stackoverflow.com/questions/3508338/what-is-the-boundary-in-multipart-form-data</a></p>
+
+
+        </article>
+        <hr>
+
+        
+        
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             本站记录我的所学所得！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/RickZgx" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>  
+            <a href="mailto:me@zgx.io" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>   
+            <a href="https://www.zhihu.com/people/zgxme" title="Zhihu"><i class="iconfont icon-daoruzhihu"></i></a>  
+            <a href="https://www.douban.com/people/zgxme/" title="Douban"><i class="iconfont icon-rickdouban1"></i></a>      
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                <a href="https://github.com/Gaohaoyang">Theme</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

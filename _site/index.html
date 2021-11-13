@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Rick&#39;s Blog</title>
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_2834368_e4zbefrloeb.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://0.0.0.0:4000/">
+    <link rel="alternate" type="application/rss+xml" title="Rick's Blog" href="http://0.0.0.0:4000/feed.xml ">
+
+
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">Rick's Blog</a>
+        <small>QA Engineer for cloud storage now</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a class="active" href="/">
+                        
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" index>
+    <div class="left">
+        <h1>Welcome to Rick's Blog!</h1>
+        <small>这里记录着我的所学所得</small>
+        <hr>
+        <ul>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2021/02/22/httpie/">Httpie</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2021-02-22
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#OpenSource" title="Category: OpenSource" rel="category">OpenSource</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <a href="/tag/#Tool" title="Tag: Tool" rel="tag">Tool</a>&nbsp;
+    
+        <a href="/tag/#Python" title="Tag: Python" rel="tag">Python</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#desc" id="markdown-toc-desc">desc</a>    <ul>
+      <li><a href="#main-feature" id="markdown-toc-main-feature">main feature</a></li>
+    </ul>
+  </li>
+  <li><a href="#install" id="markdown-toc-install">Install</a></li>
+</ul>
+
+<p>开源项目<code class="language-plaintext highlighter-rouge">Httpie</code>学习</p>
+
+<h1 id="desc">desc</h1>
+<p>HTTPie (pronounced aitch-tee-tee-pie) is a command-line HTTP client. Its goal is to make CLI interaction with web services as human-friendly as possible. HTTPie is designed for testing, debugging, and generally interacting with APIs &amp; HTTP servers. The http &amp; https commands allow for creating and sending arbitrary HTTP requests. They use simple and natural syntax and provide formatted and colorized output.</p>
+
+<p>HTTPie 操作更加友好,好像真是这样.比如CURL虽然也很强大,但是用起来不太友好…</p>
+
+<h2 id="main-feature">main feature</h2>
+
+<ul>
+  <li>Expressive and intuitive syntax</li>
+  <li>Formatted and colorized terminal output</li>
+  <li>Built-in JSON support</li>
+  <li>Forms and file uploads</li>
+  <li>HTTPS, proxies, and authentication</li>
+  <li>Arbitrary request data</li>
+  <li>Custom headers</li>
+  <li>Persistent sessions</li>
+  <li>Wget-like downloads</li>
+  <li>Linux, macOS and Windows support</li>
+  <li>Plugins</li>
+  <li>Documentation</li>
+  <li>Test coverage</li>
+</ul>
+
+<h1 id="install">Install</h1>
+
+<p>centos 安装为例</p>
+
+<p><code class="language-plaintext highlighter-rouge">yum install httpie</code></p>
+
+<p>raise error</p>
+
+<p><a href="https://www.cnblogs.com/xueweihan/p/7185133.html">ImportError: cannot import name UnrewindableBodyError</a></p>
+
+<p>`
+python2 -m pip uninstall urllib3
+python2 -m pip install urllib3==1.21.1
+`</p>
+
+<p><strong>文档建议使用Python3安装</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">python3 -m pip install httpie</code></p>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2021/02/22/httpie/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+        </ul>
+
+
+
+        <!-- Pagination links -->
+        <div class="pagination">
+          
+            <span class="previous disable"><i class="fa fa-angle-double-left"></i></span>
+            <span class="previous disable"><i class="fa fa-angle-left"></i></span>
+          
+          <span class="page_number ">1/1</span>
+          
+            <span class="next disable"><i class="fa fa-angle-right"></i></span>
+            <span class="next disable"><i class="fa fa-angle-double-right"></i></span>
+          
+        </div>
+    </div>
+    <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
+    <div class="right">
+        <div class="wrap">
+            <div class="side">
+                <div>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    Recent Posts
+                </div>
+                <ul class="content-ul" recent>
+                    
+                        <li><a href="/2021/02/22/httpie/">Httpie</a></li>
+                    
+                </ul>
+            </div>
+
+            <!-- Content -->
+            <div class="side ">
+                <div>
+                    <i class="fa fa-th-list"></i>
+                    Categories
+                </div>
+                <ul class="content-ul" cate>
+                    
+                    <li>
+                        <a href="/category/#OpenSource" class="categories-list-item" cate="OpenSource">
+                            <span class="name">
+                                OpenSource
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <div class="side">
+                <div>
+                    <i class="fa fa-tags"></i>
+                    Tags
+                </div>
+                <div class="tags-cloud">
+                    
+                    
+                    
+                    
+
+                    
+
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Linux" style="font-size: 9pt; color: #999;">Linux</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Tool" style="font-size: 9pt; color: #999;">Tool</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Python" style="font-size: 9pt; color: #999;">Python</a>
+                    
+                </div>
+            </div>
+
+            <!-- <div class="side">
+                <div>
+                    <i class="fa fa-external-link"></i>
+                    Links
+                </div>
+                <ul  class="content-ul">
+
+                </ul>
+            </div> -->
+        </div>
+    </div>
+</div>
+<!-- <script src="/js/scroll.min.js " charset="utf-8"></script> -->
+<!-- <script src="/js/pageContent.js " charset="utf-8"></script> -->
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             本站记录我的所学所得！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/RickZgx" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>  
+            <a href="mailto:me@zgx.io" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>   
+            <a href="https://www.zhihu.com/people/zgxme" title="Zhihu"><i class="iconfont icon-daoruzhihu"></i></a>  
+            <a href="https://www.douban.com/people/zgxme/" title="Douban"><i class="iconfont icon-rickdouban1"></i></a>      
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                <a href="https://github.com/Gaohaoyang">Theme</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

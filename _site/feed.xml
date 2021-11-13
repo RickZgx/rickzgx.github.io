@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rick's Blog</title>
+    <description></description>
+    <link>http://0.0.0.0:4000/</link>
+    <atom:link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 26 Sep 2021 00:16:35 +0800</pubDate>
+    <lastBuildDate>Sun, 26 Sep 2021 00:16:35 +0800</lastBuildDate>
+    <generator>Jekyll v4.2.0</generator>
+    
+      <item>
+        <title>Httpie</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#desc&quot; id=&quot;markdown-toc-desc&quot;&gt;desc&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#main-feature&quot; id=&quot;markdown-toc-main-feature&quot;&gt;main feature&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#install&quot; id=&quot;markdown-toc-install&quot;&gt;Install&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+开源项目&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Httpie&lt;/code&gt;学习
+
+&lt;h1 id=&quot;desc&quot;&gt;desc&lt;/h1&gt;
+HTTPie (pronounced aitch-tee-tee-pie) is a command-line HTTP client. Its goal is to make CLI interaction with web services as human-friendly as possible. HTTPie is designed for testing, debugging, and generally interacting with APIs &amp;amp; HTTP servers. The http &amp;amp; https commands allow for creating and sending arbitrary HTTP requests. They use simple and natural syntax and provide formatted and colorized output.
+
+HTTPie 操作更加友好,好像真是这样.比如CURL虽然也很强大,但是用起来不太友好…
+
+&lt;h2 id=&quot;main-feature&quot;&gt;main feature&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Expressive and intuitive syntax&lt;/li&gt;
+  &lt;li&gt;Formatted and colorized terminal output&lt;/li&gt;
+  &lt;li&gt;Built-in JSON support&lt;/li&gt;
+  &lt;li&gt;Forms and file uploads&lt;/li&gt;
+  &lt;li&gt;HTTPS, proxies, and authentication&lt;/li&gt;
+  &lt;li&gt;Arbitrary request data&lt;/li&gt;
+  &lt;li&gt;Custom headers&lt;/li&gt;
+  &lt;li&gt;Persistent sessions&lt;/li&gt;
+  &lt;li&gt;Wget-like downloads&lt;/li&gt;
+  &lt;li&gt;Linux, macOS and Windows support&lt;/li&gt;
+  &lt;li&gt;Plugins&lt;/li&gt;
+  &lt;li&gt;Documentation&lt;/li&gt;
+  &lt;li&gt;Test coverage&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;install&quot;&gt;Install&lt;/h1&gt;
+
+centos 安装为例
+
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum install httpie&lt;/code&gt;
+
+raise error
+
+&lt;a href=&quot;https://www.cnblogs.com/xueweihan/p/7185133.html&quot;&gt;ImportError: cannot import name UnrewindableBodyError&lt;/a&gt;
+
+`
+python2 -m pip uninstall urllib3
+python2 -m pip install urllib3==1.21.1
+`
+
+&lt;strong&gt;文档建议使用Python3安装&lt;/strong&gt;
+
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3 -m pip install httpie&lt;/code&gt;
+</description>
+        <pubDate>Mon, 22 Feb 2021 00:18:01 +0800</pubDate>
+        <link>http://0.0.0.0:4000/2021/02/22/httpie/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2021/02/22/httpie/</guid>
+        
+        <category>Linux</category>
+        
+        <category>Tool</category>
+        
+        <category>Python</category>
+        
+        
+        <category>OpenSource</category>
+        
+      </item>
+    
+  </channel>
+</rss>
