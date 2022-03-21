@@ -14,6 +14,11 @@ tags:
 vim 8.0+
 ```
 git clone https://github.com/vim/vim.git
+make distclean
+./configure --with-features=huge --enable-python3interp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --enable-rubyinterp --enable-luainterp --enable-perlinterp --with-python3-config-dir=config-3.6m-x86_64-linux-gnu --enable-multibyte --enable-cscope   
+make
+sudo make install
+sudo cp vim /usr/bin
 ```
 
 # config
@@ -65,5 +70,6 @@ au InsertLeave *.go,*.sh,*.php write
 
 
 # refs
+https://www.cnblogs.com/standardzero/p/10727689.html
 https://www.jianshu.com/p/8426cef1f4f5
 https://www.cnblogs.com/starfish29/p/11156333.html
