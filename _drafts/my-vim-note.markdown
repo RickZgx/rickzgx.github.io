@@ -17,12 +17,19 @@ git clone https://github.com/vim/vim.git
 ```
 
 # config
+vim中文乱码解决
+```
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+```
+基础配置
 ```
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 set nocompatible " 关闭兼容模式
 set nu " 设置行号
-set cursorline "突出显示当前行
+set cursorline " 突出显示当前行
 " set cursorcolumn " 突出显示当前列
 set showmatch " 显示括号匹配
 
@@ -56,5 +63,7 @@ au InsertLeave *.go,*.sh,*.php write
 
 
 
+
 # refs
 https://www.jianshu.com/p/8426cef1f4f5
+https://www.cnblogs.com/starfish29/p/11156333.html
