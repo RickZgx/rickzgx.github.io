@@ -125,11 +125,8 @@ call plug#end()
 # Refs
 > [https://github.com/junegunn/vim-plug
 ](https://github.com/junegunn/vim-plug)  
-
-[https://www.cnblogs.com/standardzero/p/10727689.html
+> [https://www.cnblogs.com/standardzero/p/10727689.html
 ](https://www.cnblogs.com/standardzero/p/10727689.html)  
-
-[https://www.jianshu.com/p/8426cef1f4f5](https://www.jianshu.com/p/8426cef1f4f5)  
-
-[https://www.cnblogs.com/starfish29/p/11156333.html
+> [https://www.jianshu.com/p/8426cef1f4f5](https://www.jianshu.com/p/8426cef1f4f5)  
+> [https://www.cnblogs.com/starfish29/p/11156333.html
 ](https://www.cnblogs.com/starfish29/p/11156333.html)
