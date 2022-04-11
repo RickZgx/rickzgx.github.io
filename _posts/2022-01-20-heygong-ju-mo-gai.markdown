@@ -13,7 +13,7 @@ hey是 Google一女工程师（现在在aws）使用 Go 语言开发的类似 ap
 ## hey manual
 
 ```bash
-./bin/hey_linux_amd64 -h                            
+./bin/hey_linux_amd64 -h
 flag needs an argument: -h
 Usage: hey [options...] <url>
 
