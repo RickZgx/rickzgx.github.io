@@ -78,7 +78,7 @@ Grafana 是一个用于监控指标分析和图表展示的工具， 后端支�
 
 修改patch
 
-https://github.com/rickzhen/hey/commit/15e4febda47749aa3683820d705be237ed7d420e
+https://github.com/zgxme/hey/commit/15e4febda47749aa3683820d705be237ed7d420e
 
 
 
@@ -215,9 +215,9 @@ hey_slowtest 0.6210238
 
 
 
-项目地址：https://github.com/rickzhen/hey
+项目地址：https://github.com/zgxme/hey
 
-下载地址：https://github.com/rickzhen/hey/releases
+下载地址：https://github.com/zgxme/hey/releases
 
 
 
