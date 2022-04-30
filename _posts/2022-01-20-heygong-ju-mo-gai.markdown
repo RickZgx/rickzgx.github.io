@@ -8,6 +8,9 @@ tags:
 - Tool
 ---
 
+* content
+{:toc}
+
 hey是 Google一女工程师（现在在aws）使用 Go 语言开发的类似 apache ab 的性能测试工具。相比 ab，boom跨平台性更好，而且更容易安装。
 
 ## hey manual
