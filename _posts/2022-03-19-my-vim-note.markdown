@@ -131,7 +131,7 @@ call plug#end()
 根据具体的问题，查询资料进行解决
 
 
-# refs
+# 参考
 > [https://github.com/junegunn/vim-plug
 ](https://github.com/junegunn/vim-plug)  
 > [https://www.cnblogs.com/standardzero/p/10727689.html
