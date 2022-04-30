@@ -121,8 +121,11 @@ call plug#end()
 
 命令行输入`vim`后输入`:PlugInstall`就可以开始安装了。
 
+# 实践
+- 刚开始使用vim使用可以`vimtutor`，按照上面的例子实践一遍
 
-# Refs
+
+# refs
 > [https://github.com/junegunn/vim-plug
 ](https://github.com/junegunn/vim-plug)  
 > [https://www.cnblogs.com/standardzero/p/10727689.html
