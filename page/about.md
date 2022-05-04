@@ -6,9 +6,8 @@ layout: page
 
 ---
 layout: page
-title: About
+title: About me
 permalink: /about/
-icon: heart
 type: page
 ---
 
