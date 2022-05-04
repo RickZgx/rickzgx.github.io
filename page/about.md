@@ -1,14 +1,7 @@
 ---
-title: About
+title: About Me
 permalink: "/about/"
 layout: page
----
-
----
-layout: page
-title: About me
-permalink: /about/
-type: page
 ---
 
 * content
