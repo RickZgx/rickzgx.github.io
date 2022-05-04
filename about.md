@@ -4,14 +4,28 @@ permalink: "/about/"
 layout: default
 ---
 
+---
+layout: page
+title: About
+permalink: /about/
+icon: heart
+type: page
+---
 
-nothing left
-Some information about you!
+* content
+{:toc}
 
-### More Information
+## 关于我
 
-A place to include any other types of information that you'd like to include about yourself.
 
-### Contact me
+## 联系我
 
-[email@domain.com](mailto:email@domain.com)
+
+## 友情链接
+
+[LINE技术博客](https://engineering.linecorp.com/zh-hant/blog/)
+
+
+## Comments
+
+{% include comments.html %}
