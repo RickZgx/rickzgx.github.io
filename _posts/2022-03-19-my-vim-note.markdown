@@ -8,6 +8,9 @@ tags:
 - Vim
 ---
 
+* content
+{:toc}
+
 本文记录Vim个人常用操作和配置，并持续更新中！
 
 # 准备
@@ -121,8 +124,14 @@ call plug#end()
 
 命令行输入`vim`后输入`:PlugInstall`就可以开始安装了。
 
+# 入门
+刚开始使用vim使用可以`vimtutor`，按照上面的例子实践一遍
 
-# Refs
+# 实践
+根据具体的问题，查询资料进行解决
+
+
+# 参考
 > [https://github.com/junegunn/vim-plug
 ](https://github.com/junegunn/vim-plug)  
 > [https://www.cnblogs.com/standardzero/p/10727689.html
