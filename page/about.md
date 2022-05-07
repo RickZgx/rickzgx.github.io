@@ -17,7 +17,8 @@ email:me@zgx.io
 ## 友情链接
 
 [LINE技术博客](https://engineering.linecorp.com/zh-hant/blog/)
-[Dropbox技术博客](https://dropbox.tech/)
+[DropBox技术博客](https://dropbox.tech/)
+[PingCAP技术博客](https://pingcap.com/zh/blog/)
 
 
 ## Comments
