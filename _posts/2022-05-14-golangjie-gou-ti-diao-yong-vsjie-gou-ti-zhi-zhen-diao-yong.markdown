@@ -1,5 +1,5 @@
 ---
-title: Golang结构体调用vs结构体指针调用
+title: Golang结构体值调用vs指针调用
 date: 2022-05-14 10:18:00 Z
 categories:
 - Language
@@ -10,9 +10,10 @@ tags:
 * content
 {:toc}
 
-两种结构体调用方式都能大部分满足我们的需求，为什么要有两种调用方式呢？他们间的异同点是什么呢？
+两种结构体调用方式都能大部分满足我们的需求，为什么要有两种调用方式呢？
+他们间的异同点是什么呢？
 
-本文浅谈下Golang结构体调用和结构体指针调用间的区别。
+本文浅谈下Golang结构体值调用和指针调用间的区别。
 
 并引出2个问题：
 1.结构体指针调用确实如网上说的那么高效么？
@@ -130,12 +131,12 @@ output
 ```
 
 从这些例子看，如果使用结构体指针调用修改这些字段，修改对于调用者是可见的。
-但是使用结构体调用，是通过参数拷贝实现的，修改对于调用者是不可见的。
+但是使用结构体值调用，是通过参数拷贝实现的，修改对于调用者是不可见的。
 
 运用场景：
-使用结构体调用来替代结构体指针调用，可以遵循参数不可变行性质，更加安全。这种用法叫做“防御性拷贝”。
+使用结构体值调用来替代结构体指针调用，可以遵循参数不可变行性质，更加安全。这种用法叫做“防御性拷贝”。
 
-除了修改字段外，这两种调用方式几乎没别的区别了；可能因为结构体调用有参数拷贝操作，他们之前性能差异比较大
+除了修改字段外，这两种调用方式几乎没别的区别了；可能因为结构体值调用有参数拷贝操作，他们之前性能差异比较大
 
 
 # 性能
@@ -222,6 +223,6 @@ PASS
 
 
 # 参考
-[defining-golang-struct-function-using-pointer-or-not](https://stackoverflow.com/questions/25382073/defining-golang-struct-function-using-pointer-or-not)
+[defining-golang-struct-function-using-pointer-or-not](https://stackoverflow.com/questions/25382073/defining-golang-struct-function-using-pointer-or-not)  
 [why-are-receivers-pass-by-value-in-go](https://stackoverflow.com/questions/18435498/why-are-receivers-pass-by-value-in-go/18436251#18436251)
 
