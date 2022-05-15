@@ -31,26 +31,6 @@ func (s MyStruct)  valueMethod()   { } // method on value
 modify field of slice
 ```golang
 
-type action struct {
-	name int
-}
-
-type person struct {
-	act  action
-	name string
-	age  int
-}
-
-type image struct {
-	data map[int]int
-}
-
-type Books struct {
-	title   string
-	author  string
-	book_id int
-}
-
 type SliceTest struct {
 	s []int
 }
