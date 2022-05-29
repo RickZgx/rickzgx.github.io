@@ -18,12 +18,63 @@ LRU和LFU是指什么呢？它们之间有什么区别和联系呢？它们实�
 各位也许只能答出来1、2个，本文将阅读相关文献和走读Go开源LRU、LFU代码实现带领各位揭开LRU、LFU二者的面纱！
 
 # 定义
-LRU
-LFU
+## LRU
+from wikipeda
+> Discards the least recently used items first. This algorithm requires keeping track of what was used when, which is expensive if one wants to make sure the algorithm always discards the least recently used item. 
+
+LRU其实是Least Recently Used首字母开头的缩写，即最近最少使用。LRU是一种页面置换算法，选主最近最远的页面进行淘汰。
+
+使用golang-lru进行演示
+```golang
+package main
+
+import (
+	"fmt"
+
+	lru "github.com/hashicorp/golang-lru"
+)
+
+func main() {
+	c, _ := lru.New(5)
+	for i := 0; i < 10; i++ {
+		c.Add(i, i*i)
+	}
+	for i := 0; i < 10; i++ {
+		fmt.Println(c.Get(i))
+	}
+	fmt.Println(c.Len())
+	fmt.Println(c.Keys()...)
+
+}
+output
+```
+<nil> false
+<nil> false
+<nil> false
+<nil> false
+<nil> false
+25 true
+36 true
+49 true
+64 true
+81 true
+5
+5 6 7 8 9
+```bash
+
+```
+
+## LFU
 
 # 实现原理
 
 ## LRU
+LRU init
+```golang
+
+```
+整体使用链表初始化，特定大小LRU初始化，相当于初始化链表、并记录LRU大小；
+使用链表来实现，对cache，每个K-V对相当于一个node，
 
 ## LFU
 
@@ -31,6 +82,8 @@ LFU
 
 # 适用场景
 
+# 参考
+[LRU wiki](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU))
 
 
 
