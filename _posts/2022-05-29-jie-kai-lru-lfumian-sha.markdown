@@ -47,7 +47,7 @@ func main() {
 
 }
 output
-```
+```bash
 <nil> false
 <nil> false
 <nil> false
@@ -60,8 +60,6 @@ output
 81 true
 5
 5 6 7 8 9
-```bash
-
 ```
 
 ## LFU
@@ -70,7 +68,7 @@ output
 
 ## LRU 
 init
-底层整体使用链表、哈希表拉来实现
+底层整体使用链表、哈希表拉来实现，上层使用时候需要进行加锁操作；
 初始化特定大小LRU，相当于初始化list、map，并记录LRU大小；
 ```golang
 type LRU struct {
@@ -95,7 +93,7 @@ func NewLRU(size int, onEvict EvictCallback) (*LRU, error) {
 ```
 
 put
-
+首先判断map中是否有对应的键值对，
 ```golang
 // Add adds a value to the cache.  Returns true if an eviction occurred.
 func (c *LRU) Add(key, value interface{}) (evicted bool) {
