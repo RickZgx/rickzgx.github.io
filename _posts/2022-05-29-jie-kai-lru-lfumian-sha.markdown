@@ -93,7 +93,8 @@ func NewLRU(size int, onEvict EvictCallback) (*LRU, error) {
 ```
 
 put
-首先判断map中是否有对应的键值对，
+首先判断map中是否有对应的键值对，如果有将节点移动到链表头部，代表当前修改的键值对是最新更新的键值对
+
 ```golang
 // Add adds a value to the cache.  Returns true if an eviction occurred.
 func (c *LRU) Add(key, value interface{}) (evicted bool) {
