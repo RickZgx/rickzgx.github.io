@@ -68,13 +68,22 @@ output
 
 # 实现原理
 
-## LRU
-LRU init
-```golang
+## LRU 
+底层整体使用链表、哈希表拉来实现
 
-```
-整体使用链表初始化，特定大小LRU初始化，相当于初始化链表、并记录LRU大小；
+初始化，特定大小LRU初始化，相当于初始化链表、并记录LRU大小；
 使用链表来实现，对cache，每个K-V对相当于一个node，
+
+init
+```golang
+type LRU struct {
+	size      int //LRU大小
+	evictList *list.List //map存放键值对，主要判断最久没更新的键值对，供后续淘汰使用
+	items     map[interface{}]*list.Element //map存放键值对
+	onEvict   EvictCallback //淘汰回调函数
+}
+```
+
 
 ## LFU
 
