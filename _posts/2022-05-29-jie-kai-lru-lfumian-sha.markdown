@@ -69,12 +69,9 @@ output
 # 实现原理
 
 ## LRU 
-底层整体使用链表、哈希表拉来实现
-
-初始化，特定大小LRU初始化，相当于初始化链表、并记录LRU大小；
-使用链表来实现，对cache，每个K-V对相当于一个node，
-
 init
+底层整体使用链表、哈希表拉来实现
+初始化特定大小LRU，相当于初始化list、map，并记录LRU大小；
 ```golang
 type LRU struct {
 	size      int //LRU大小
@@ -82,8 +79,63 @@ type LRU struct {
 	items     map[interface{}]*list.Element //map存放键值对
 	onEvict   EvictCallback //淘汰回调函数
 }
+
+func NewLRU(size int, onEvict EvictCallback) (*LRU, error) {
+	if size <= 0 {
+		return nil, errors.New("must provide a positive size")
+	}
+	c := &LRU{
+		size:      size,
+		evictList: list.New(),
+		items:     make(map[interface{}]*list.Element),
+		onEvict:   onEvict,
+	}
+	return c, nil
+}
 ```
 
+put
+
+```golang
+// Add adds a value to the cache.  Returns true if an eviction occurred.
+func (c *LRU) Add(key, value interface{}) (evicted bool) {
+	// Check for existing item
+	if ent, ok := c.items[key]; ok {
+		c.evictList.MoveToFront(ent)
+		ent.Value.(*entry).value = value
+		return false
+	}
+
+	// Add new item
+	ent := &entry{key, value}
+	entry := c.evictList.PushFront(ent)
+	c.items[key] = entry
+
+	evict := c.evictList.Len() > c.size
+	// Verify size not exceeded
+	if evict {
+		c.removeOldest()
+	}
+	return evict
+}
+```
+
+get
+
+```golang
+// Get looks up a key's value from the cache.
+func (c *LRU) Get(key interface{}) (value interface{}, ok bool) {
+	if ent, ok := c.items[key]; ok {
+		c.evictList.MoveToFront(ent)
+		if ent.Value.(*entry) == nil {
+			return nil, false
+		}
+		return ent.Value.(*entry).value, true
+	}
+	return
+}
+
+```
 
 ## LFU
 
