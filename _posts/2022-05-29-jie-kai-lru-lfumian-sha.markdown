@@ -67,7 +67,7 @@ output
 # 实现原理
 
 ## LRU 
-init
+### init
 底层整体使用链表、哈希表拉来实现，上层使用时候需要进行加锁操作；
 初始化特定大小LRU，相当于初始化list、map，并记录LRU大小；
 ```golang
@@ -92,8 +92,9 @@ func NewLRU(size int, onEvict EvictCallback) (*LRU, error) {
 }
 ```
 
-put
-首先判断map中是否有对应的键值对，如果有将节点移动到链表头部，代表当前修改的键值对是最新更新的键值对
+### put
+首先判断map中是否有对应的键值对，如果有将节点移动到链表头部，代表当前修改的键值对是最新更新的键值对。如果没有创建键值对节点，并移动到链表头部。
+然后判断当前链表长度是否超过预设的size，如果超过，需要删除最久没更新的node。
 
 ```golang
 // Add adds a value to the cache.  Returns true if an eviction occurred.
@@ -119,7 +120,7 @@ func (c *LRU) Add(key, value interface{}) (evicted bool) {
 }
 ```
 
-get
+### get
 
 ```golang
 // Get looks up a key's value from the cache.
