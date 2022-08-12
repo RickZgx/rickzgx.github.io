@@ -20,7 +20,9 @@ email:me@zgx.io
 
 [DropBox技术博客](https://dropbox.tech/)  
 
-[PingCAP技术博客](https://pingcap.com/zh/blog/)  
+[PingCAP技术博客](https://pingcap.com/zh/blog/) 
+
+[Medium技术博客](https://medium.com/) 
 
 
 
