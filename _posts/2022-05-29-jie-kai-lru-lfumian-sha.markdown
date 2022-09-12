@@ -68,7 +68,7 @@ output
 
 ## LRU 
 ### init
-底层整体使用链表、哈希表拉来实现，上层使用时候需要进行加锁操作；
+底层整体使用链表、哈希表来实现，上层使用时候需要进行加锁操作；
 初始化特定大小LRU，相当于初始化list、map，并记录LRU大小；
 ```golang
 type LRU struct {
@@ -143,13 +143,161 @@ from wikipeda
 
 LFU是Least Frequently Used首字母开头的缩写，即淘汰最不常用。它跟LRU算法类似，但是需要哈希存储值访问的次数，来决定淘汰哪个页面。
 ### init
+底层实现与LRU实现类似，通过横向和纵向双链表实
+![lfu-data-structure.jpeg](/uploads/lfu-data-structure.jpeg)
+
+```golang
+
+//开启记录淘汰cache时候使用,普通键值对
+type Eviction struct {
+	Key   string
+	Value interface{}
+}
+
+type Cache struct {
+	// If len > UpperBound, cache will automatically evict
+	// down to LowerBound.  If either value is 0, this behavior
+	// is disabled.
+	UpperBound      int                    //如果cache大小超过UpperBound,淘汰cache
+	LowerBound      int                    //淘汰cache大小至LowerBound
+	values          map[string]*cacheEntry //map存放键值对
+	freqs           *list.List             //记录频率list(横向list)
+	len             int                    //记录cache大小
+	lock            *sync.Mutex
+	EvictionChannel chan<- Eviction //记录淘汰信号量
+}
+
+type cacheEntry struct {
+	key      string
+	value    interface{}
+	freqNode *list.Element //指向记录频率list node
+}
+
+//记录频率list中的 node
+type listEntry struct {
+	entries map[*cacheEntry]byte //指向存放键值对ap
+	freq    int                  //记录频率大小
+}
+
+func New() *Cache {
+	c := new(Cache)
+	c.values = make(map[string]*cacheEntry)
+	c.freqs = list.New()
+	c.lock = new(sync.Mutex)
+	return c
+}
+```
 
 ### put
+```golang
+func (c *Cache) Set(key string, value interface{}) {
+	c.lock.Lock()
+	defer c.lock.Unlock()
+	if e, ok := c.values[key]; ok {
+		// value already exists for key.  overwrite
+		e.value = value
+		c.increment(e)
+	} else {
+		// value doesn't exist.  insert
+		e := new(cacheEntry)
+		e.key = key
+		e.value = value
+		c.values[key] = e
+		c.increment(e)
+		c.len++
+		// bounds mgmt
+		if c.UpperBound > 0 && c.LowerBound > 0 {
+			if c.len > c.UpperBound {
+				c.evict(c.len - c.LowerBound)
+			}
+		}
+	}
+}
+
+func (c *Cache) increment(e *cacheEntry) {
+	currentPlace := e.freqNode
+	var nextFreq int
+	var nextPlace *list.Element
+	if currentPlace == nil {
+		// new entry
+		nextFreq = 1
+		nextPlace = c.freqs.Front()
+	} else {
+		// move up
+		nextFreq = currentPlace.Value.(*listEntry).freq + 1
+		nextPlace = currentPlace.Next()
+	}
+
+	if nextPlace == nil || nextPlace.Value.(*listEntry).freq != nextFreq {
+		// create a new list entry
+		li := new(listEntry)
+		li.freq = nextFreq
+		li.entries = make(map[*cacheEntry]byte)
+		if currentPlace != nil {
+			nextPlace = c.freqs.InsertAfter(li, currentPlace)
+		} else {
+			nextPlace = c.freqs.PushFront(li)
+		}
+	}
+	e.freqNode = nextPlace
+	nextPlace.Value.(*listEntry).entries[e] = 1
+	if currentPlace != nil {
+		// remove from current position
+		c.remEntry(currentPlace, e)
+	}
+}
+```
 ### get
+```golang
+func (c *Cache) Get(key string) interface{} {
+	c.lock.Lock()
+	defer c.lock.Unlock()
+	if e, ok := c.values[key]; ok {
+		c.increment(e)
+		return e.value
+	}
+	return nil
+}
+```
+### evict
+```golang
+func (c *Cache) Evict(count int) int {
+	c.lock.Lock()
+	defer c.lock.Unlock()
+	return c.evict(count)
+}
+
+func (c *Cache) evict(count int) int {
+	// No lock here so it can be called
+	// from within the lock (during Set)
+	var evicted int
+	for i := 0; i < count; {
+		if place := c.freqs.Front(); place != nil {
+			for entry, _ := range place.Value.(*listEntry).entries {
+				if i < count {
+					if c.EvictionChannel != nil {
+						c.EvictionChannel <- Eviction{
+							Key:   entry.key,
+							Value: entry.value,
+						}
+					}
+					delete(c.values, entry.key)
+					c.remEntry(place, entry)
+					evicted++
+					c.len--
+					i++
+				}
+			}
+		}
+	}
+	return evicted
+}
+```
+
 # 二者区别&适用场景
 LFU空间占用会比LRU大，LRU算法实现比较简单。
 我个人理解，LFU淘汰算法会比较“客观”，不会像LRU一样一股脑比最后一个页面淘汰掉。
-LFU会根据统计的结果，用数据说话。
+LFU会根据统计的结果，用数据说话。LRU可能会导致频繁IO。
 
 # 参考
 [LRU wiki](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU))  
