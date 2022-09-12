@@ -135,6 +135,29 @@ func (c *LRU) Get(key interface{}) (value interface{}, ok bool) {
 	return
 }
 
+### evict
+```golang
+
+// removeOldest removes the oldest item from the cache.
+func (c *LRU) removeOldest() {
+	ent := c.evictList.Back()
+	if ent != nil {
+		c.removeElement(ent)
+	}
+}
+
+// removeElement is used to remove a given list element from the cache
+func (c *LRU) removeElement(e *list.Element) {
+	c.evictList.Remove(e)
+	kv := e.Value.(*entry)
+	delete(c.items, kv.key)
+	if c.onEvict != nil {
+		c.onEvict(kv.key, kv.value)
+	}
+}
+
+```
+
 ```
 
 ## LFU
