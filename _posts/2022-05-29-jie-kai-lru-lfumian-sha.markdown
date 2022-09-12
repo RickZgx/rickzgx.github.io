@@ -318,7 +318,7 @@ func (c *Cache) evict(count int) int {
 ```
 
 # 二者区别&适用场景
-LFU空间占用会比LRU大，LRU算法实现比较简单。
+LFU空间占用会比LRU大，LRU算法实现比较简单。  
 我个人理解，LFU淘汰算法会比较“客观”，不会像LRU一样一股脑比最后一个页面淘汰掉。
 LFU会根据统计的结果，用数据说话。LRU可能会导致频繁IO。
 
