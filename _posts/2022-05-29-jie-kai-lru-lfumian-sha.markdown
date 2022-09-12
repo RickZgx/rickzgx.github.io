@@ -143,7 +143,7 @@ from wikipeda
 
 LFU是Least Frequently Used首字母开头的缩写，即淘汰最不常用。它跟LRU算法类似，但是需要哈希存储值访问的次数，来决定淘汰哪个页面。
 ### init
-底层实现与LRU实现类似，通过横向和纵向双链表实
+底层实现与LRU实现类似，通过横向和纵向双链表实现
 ![lfu-data-structure.jpeg](/uploads/lfu-data-structure.jpeg)
 
 ```golang
@@ -305,5 +305,6 @@ LFU会根据统计的结果，用数据说话。LRU可能会导致频繁IO。
 [banyu tech blog LRU](https://tech.ipalfish.com/blog/2020/03/25/lfu/)  
 [golang-lru](https://github.com/hashicorp/golang-lru)  
 [golang-lfu](https://github.com/dgrijalva/lfu-go)  
-
+[lfu-paper](http://dhruvbird.com/lfu.pdf)
+  
 
