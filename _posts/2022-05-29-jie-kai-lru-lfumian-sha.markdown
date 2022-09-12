@@ -134,6 +134,7 @@ func (c *LRU) Get(key interface{}) (value interface{}, ok bool) {
 	}
 	return
 }
+```
 
 ### evict
 ```golang
