@@ -13,9 +13,9 @@ tags:
 * content
 {:toc}
 
-LRU和LFU两个英文串各位肯定并不陌生，那是否很深刻理解如下几个问题（也是我最近一直挂在心上的几个问题）：
-LRU和LFU是指什么呢？它们之间有什么区别和联系呢？它们实现原理是什么呢？分别适用的场景是什么呢？
-各位也许只能答出来1、2个，本文将阅读相关文献和走读Go开源LRU、LFU代码实现带领各位揭开LRU、LFU二者的面纱！
+LRU和LFU两个英文串各位肯定并不陌生，那是否很深刻理解如下几个问题（也是我最近一直挂在心上的几个问题）：  
+LRU和LFU是指什么呢？它们之间有什么区别和联系呢？它们实现原理是什么呢？分别适用的场景是什么呢？  
+各位也许只能答出来1、2个，本文将阅读相关文献和走读Go开源LRU、LFU代码实现带领各位揭开LRU、LFU二者的面纱！  
 
 # 定义
 ## LRU
@@ -68,8 +68,8 @@ output
 
 ## LRU 
 ### init
-底层整体使用链表、哈希表来实现，上层使用时候需要进行加锁操作；
-初始化特定大小LRU，相当于初始化list、map，并记录LRU大小；
+底层整体使用链表、哈希表来实现，上层使用时候需要进行加锁操作；  
+初始化特定大小LRU，相当于初始化list、map，并记录LRU大小；  
 ```golang
 type LRU struct {
 	size      int //LRU大小
@@ -93,8 +93,8 @@ func NewLRU(size int, onEvict EvictCallback) (*LRU, error) {
 ```
 
 ### put
-首先判断map中是否有对应的键值对，如果有将节点移动到链表头部，代表当前修改的键值对是最新更新的键值对。如果没有创建键值对节点，并移动到链表头部。
-然后判断当前链表长度是否超过预设的size，如果超过，需要删除最久没更新的node。
+首先判断map中是否有对应的键值对，如果有将节点移动到链表头部，代表当前修改的键值对是最新更新的键值对。如果没有创建键值对节点，并移动到链表头部。  
+然后判断当前链表长度是否超过预设的size，如果超过，需要删除最久没更新的node。  
 
 ```golang
 // Add adds a value to the cache.  Returns true if an eviction occurred.
@@ -162,7 +162,7 @@ func (c *LRU) removeElement(e *list.Element) {
 from wikipeda
 > Counts how often an item is needed. Those that are used least often are discarded first. This works very similar to LRU except that instead of storing the value of how recently a block was accessed, we store the value of how many times it was accessed. So of course while running an access sequence we will replace a block which was used fewest times from our cache. E.g., if A was used (accessed) 5 times and B was used 3 times and others C and D were used 10 times each, we will replace B.
 
-LFU是Least Frequently Used首字母开头的缩写，即淘汰最不常用。它跟LRU算法类似，但是需要哈希存储值访问的次数，来决定淘汰哪个页面。
+LFU是Least Frequently Used首字母开头的缩写，即淘汰最不常用。它跟LRU算法类似，但是需要哈希存储值访问的次数，来决定淘汰哪个页面。  
 ### init
 底层实现与LRU实现类似，通过横向和纵向双链表实现
 ![lfu-data-structure.jpeg](/uploads/lfu-data-structure.jpeg)
