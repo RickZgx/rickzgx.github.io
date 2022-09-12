@@ -154,8 +154,8 @@ LFU会根据统计的结果，用数据说话。
 # 参考
 [LRU wiki](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU))  
 [LFU wiki](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least-frequently_used_(LFU))  
-[banyu tech blog LRU](https://tech.ipalfish.com/blog/2020/03/25/lfu/)
-[golang-lru](https://github.com/hashicorp/golang-lru)
-[golang-lfu](https://github.com/dgrijalva/lfu-go)
+[banyu tech blog LRU](https://tech.ipalfish.com/blog/2020/03/25/lfu/)  
+[golang-lru](https://github.com/hashicorp/golang-lru)  
+[golang-lfu](https://github.com/dgrijalva/lfu-go)  
 
 
