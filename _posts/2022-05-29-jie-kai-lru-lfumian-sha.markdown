@@ -22,7 +22,7 @@ LRU和LFU是指什么呢？它们之间有什么区别和联系呢？它们实�
 from wikipeda
 > Discards the least recently used items first. This algorithm requires keeping track of what was used when, which is expensive if one wants to make sure the algorithm always discards the least recently used item. 
 
-LRU其实是Least Recently Used首字母开头的缩写，即最近最少使用。LRU是一种页面置换算法，选择最近最远的页面进行淘汰。
+LRU其实是Least Recently Used首字母开头的缩写，即淘汰最近最少使用。LRU是一种页面置换算法，选择最近最远的页面进行淘汰。
 
 使用golang-lru进行演示
 ```golang
@@ -138,14 +138,24 @@ func (c *LRU) Get(key interface{}) (value interface{}, ok bool) {
 ```
 
 ## LFU
+from wikipeda
+> Counts how often an item is needed. Those that are used least often are discarded first. This works very similar to LRU except that instead of storing the value of how recently a block was accessed, we store the value of how many times it was accessed. So of course while running an access sequence we will replace a block which was used fewest times from our cache. E.g., if A was used (accessed) 5 times and B was used 3 times and others C and D were used 10 times each, we will replace B.
 
-# 二者区别
+LFU是Least Frequently Used首字母开头的缩写，即淘汰最不常用。它跟LRU算法类似，但是需要哈希存储值访问的次数，来决定淘汰哪个页面。
+### init
 
-# 适用场景
+### put
+### get
+# 二者区别&适用场景
+LFU空间占用会比LRU大，LRU算法实现比较简单。
+我个人理解，LFU淘汰算法会比较“客观”，不会像LRU一样一股脑比最后一个页面淘汰掉。
+LFU会根据统计的结果，用数据说话。
 
 # 参考
-[LRU wiki](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU))
-
-
+[LRU wiki](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU))  
+[LFU wiki](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least-frequently_used_(LFU))  
+[banyu tech blog LRU](https://tech.ipalfish.com/blog/2020/03/25/lfu/)
+[golang-lru](https://github.com/hashicorp/golang-lru)
+[golang-lfu](https://github.com/dgrijalva/lfu-go)
 
 
