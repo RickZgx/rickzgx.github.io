@@ -22,7 +22,7 @@ LRU和LFU是指什么呢？它们之间有什么区别和联系呢？它们实�
 from wikipeda
 > Discards the least recently used items first. This algorithm requires keeping track of what was used when, which is expensive if one wants to make sure the algorithm always discards the least recently used item. 
 
-LRU其实是Least Recently Used首字母开头的缩写，即最近最少使用。LRU是一种页面置换算法，选主最近最远的页面进行淘汰。
+LRU其实是Least Recently Used首字母开头的缩写，即最近最少使用。LRU是一种页面置换算法，选择最近最远的页面进行淘汰。
 
 使用golang-lru进行演示
 ```golang
