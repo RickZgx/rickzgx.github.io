@@ -8,11 +8,11 @@ collections:
   uploads:
     title: Uploads
     output: true
-brief-intro: QA Engineer for cloud storage now
+brief-intro: 
 baseurl: 
 url: https://blog.zgx.io
 permalink: "/:year/:month/:day/:title/"
-twitter_username: 
+twitter_username: zgxme
 facebook_username: 
 github_username: zgxme
 email: me@zgx.io
@@ -21,7 +21,7 @@ zhihu_username: zgxme
 douban_username: zgxme
 linkedIn_username: 
 dribbble_username: 
-description_footer: 这里记录我的所学所得！
+description_footer: 
 duoshuo_shortname: 
 disqus_shortname: zgx
 baidu_tongji_id: afce4fbd8441721cccfbe5650f07887b
