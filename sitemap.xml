@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://blog.zgx.io/</loc>
+  <lastmod>2024-03-15T05:57:57+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://blog.zgx.io/archive/</loc>
+  <lastmod>2024-03-15T05:57:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.zgx.io/category/</loc>
+  <lastmod>2024-03-15T05:57:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.zgx.io/tag/</loc>
+  <lastmod>2024-03-15T05:57:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.zgx.io/about/</loc>
+  <lastmod>2024-03-15T05:57:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.zgx.io/2022/05/29/jie-kai-lru-lfumian-sha/</loc>
+  <lastmod>2024-03-15T05:57:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.zgx.io/2022/05/14/golangjie-gou-ti-diao-yong-vsjie-gou-ti-zhi-zhen-diao-yong/</loc>
+  <lastmod>2024-03-15T05:57:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.zgx.io/2022/03/19/my-vim-note/</loc>
+  <lastmod>2024-03-15T05:57:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.zgx.io/2022/01/20/heygong-ju-mo-gai/</loc>
+  <lastmod>2024-03-15T05:57:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.zgx.io/2021/05/27/2021-5-27-minio/</loc>
+  <lastmod>2024-03-15T05:57:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.zgx.io/2021/02/21/2021-2-21-httpie/</loc>
+  <lastmod>2024-03-15T05:57:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>
