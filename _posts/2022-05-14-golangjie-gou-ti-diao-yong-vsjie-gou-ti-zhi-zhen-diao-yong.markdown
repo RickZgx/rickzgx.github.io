@@ -5,6 +5,7 @@ categories:
 - Language
 tags:
 - Golang
+comments: true
 ---
 
 * content
