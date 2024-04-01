@@ -23,7 +23,7 @@ linkedIn_username:
 dribbble_username: 
 description_footer: 
 duoshuo_shortname: 
-disqus_shortname: zgx
+disqus_shortname: 
 baidu_tongji_id: afce4fbd8441721cccfbe5650f07887b
 google_analytics_id: 7638765453
 markdown: kramdown
@@ -33,7 +33,11 @@ kramdown:
 category_dir: category/
 tag_dir: tag/
 excerpt_separator: |2+
-
+utterances:
+  repo: "zgxme/zgxme.github.io"
+  issue-term: "pathname"
+  label: "utteranc.es"
+  theme: "github-dark-orange"
 
 
 

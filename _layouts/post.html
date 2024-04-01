@@ -65,7 +65,8 @@ layout: default
         {% include previousAndNext.html %}
 
         <h2 id="comments">Comments</h2>
-        {% include comments.html %}
+	{%- assign issue-term = page.title | prepend: 'Comments: ' -%}
+	{% include comments.html issue-term=issue-term %}
 
 
     </div>
