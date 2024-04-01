@@ -6,6 +6,7 @@ categories:
 tags:
 - Golang
 - Tool
+comments: true
 ---
 
 * content
