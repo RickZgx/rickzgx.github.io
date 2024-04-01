@@ -32,7 +32,7 @@ kramdown:
   syntax_highlighter: rouge
 category_dir: category/
 tag_dir: tag/
-excerpt_separator: 2
+excerpt_separator: "#"
 utterances:
   repo: zgxme/zgxme.github.io
   issue-term: pathname
