@@ -6,6 +6,7 @@ categories:
 tags:
 - Tool
 - Vim
+comments: true
 ---
 
 * content
