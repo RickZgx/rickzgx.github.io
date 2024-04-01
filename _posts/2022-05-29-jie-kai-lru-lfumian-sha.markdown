@@ -8,6 +8,7 @@ tags:
 - Golang
 - Algorithm
 - Cache
+prep time: 20 min
 ---
 
 * content
