@@ -20,6 +20,8 @@ comments: true
 1.结构体指针调用确实如网上说的那么高效么？
 2.如果高效，高效的原因是什么呢？
 
+<!--more-->
+
 # 调用定义
 ```golang
 func (s *MyStruct) pointerMethod() { } // method on pointer
