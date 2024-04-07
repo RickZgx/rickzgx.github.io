@@ -7,10 +7,11 @@ tags:
 - Travel
 ---
 
+青岛是座浪漫的城市，啤酒好喝、物价感人、环境、空气很棒。列入未来养老城市名单。
+
 ![IMG_1124.JPG](https://blog-rick.oss-cn-beijing.aliyuncs.com/img_format/IMG_1124.JPG)
 
 <!--more-->
-
 
 ![IMG_1071.jpg](https://blog-rick.oss-cn-beijing.aliyuncs.com/img_format/IMG_1071.jpg)
 
