@@ -11,8 +11,6 @@ tags:
 
 ![IMG_1124.JPG](https://blog-rick.oss-cn-beijing.aliyuncs.com/img_format/IMG_1124.JPG)
 
-![IMG_1236.jpg](https://blog-rick.oss-cn-beijing.aliyuncs.com/img_format/IMG_1236.jpg)
-
 ![IMG_1161.jpg](https://blog-rick.oss-cn-beijing.aliyuncs.com/img_format/IMG_1161.jpg)
 
 ![IMG_1236.jpg](https://blog-rick.oss-cn-beijing.aliyuncs.com/img_format/IMG_1236.jpg)
